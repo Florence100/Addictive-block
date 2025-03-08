@@ -1,0 +1,89 @@
+@font-face {
+    font-family: 'Schibsted Grotesk';
+    src: url('src/fonts/Grotesk/SchibstedGrotesk-Regular.woff2') format('woff2'),
+         url('src/fonts/Grotesk/SchibstedGrotesk-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: #000;
+    color: #fff;
+    font-family: 'Schibsted Grotesk';
+}
+
+.text-block {
+    background-color: #000;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    font-weight: 600;
+}
+
+.text-block.sm-screen {
+    display: none;
+}
+
+.text-line {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    font-size: calc(6vw + 10px);
+    line-height: 1.2;
+}
+
+.text-line:not(:has(video)) span {
+    width: 100%;
+    display: block;
+    text-align-last: justify;
+}
+
+.spacer {
+    position: relative;
+    flex-grow: 1;
+    height: 0.5em;
+    overflow: hidden;
+}
+
+.spacer + span {
+    margin-left: 0.25em;
+}
+
+span + .spacer {
+    margin-left: 0.25em;
+}
+
+video {
+    min-height: 100%;
+    position: absolute;
+}
+
+@media (max-width: 850px) {
+    .text-block.lg-screen {
+        display: none;
+    }
+
+    .text-block.sm-screen {
+        display: block;
+    }
+
+    .text-line {
+        font-size: calc(9vw + 10px);
+    }
+}
+
+@media (max-width: 850px) {
+    .text-line {
+        font-size: calc(7vw + 10px);
+    }
+}
