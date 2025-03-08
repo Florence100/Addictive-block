@@ -1,3 +1,25 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const videos = document.querySelectorAll('.video-element');
+    let loadedVideos = 0;
+
+    videos.forEach(video => {
+        video.addEventListener('loadeddata', () => {
+            loadedVideos += 1;
+            if (loadedVideos === videos.length) {
+                videos.forEach(v => v.play());
+            }
+        });
+    });
+
+    setVideoMinHeight();
+    updateVideoPosition();
+});
+
+window.addEventListener('resize', () => {
+    setVideoMinHeight();
+    updateVideoPosition();
+});
+
 function updateVideoPosition() {
     const spacers = document.querySelectorAll('.spacer');
     spacers.forEach(spacer => {
@@ -21,13 +43,3 @@ function setVideoMinHeight() {
         video.style.minWidth = `${textBlockWidth}px`;
     });
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-    setVideoMinHeight();
-    updateVideoPosition();
-});
-
-window.addEventListener('resize', () => {
-    setVideoMinHeight();
-    updateVideoPosition();
-});
